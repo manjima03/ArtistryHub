@@ -10,18 +10,20 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    
     width: 100%;
     background-color:rgb(67, 110, 51);
     color: rgb(67, 110, 51);
     padding: 15px;
-    z-index: 1000;
+    /* z-index: 10; */
 }
 
 footer{
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     left: 0;
-    width: 100%;
+    object-fit: fill;
+    /* width: 98.6%; */
     background-color: #333;
     color: white;
     padding: 10px;
@@ -226,7 +228,7 @@ footer{
 
   .main-content {
     padding-top: 100px; /* Space for fixed header */
-    padding-bottom: 70px; /* Space for fixed footer */
+    padding-bottom: 70px; Space for fixed footer
 }
 
   .section-title {
