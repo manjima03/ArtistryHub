@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ArtistryHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* .main-content {
+            padding: 6rem 0 2rem 0;
+        } */
+        .cart-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+        .cart-title {
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .cart-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: rgb(67, 110, 51);
+            border-radius: 3px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+        .cart-item-details {
+            flex: 1;
+        }
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .cart-item-price {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .quantity-btn {
+            background: none;
+            border: 1px solid #dee2e6;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 0.25rem;
+        }
+        .remove-item {
+            color: #e74c3c;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+        .cart-summary {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e9ecef;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: rgb(67, 110, 51);
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .checkout-btn:hover {
+            background-color: rgb(57, 94, 43);
+            transform: translateY(-2px);
+        }
+        .cart-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .cart-empty i {
+            font-size: 4rem;
+            color: #95a5a6;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+        .cart-empty p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="titlebar">
+        
+            <div class="fsticon" style="display: flex; gap: 10px; align-items: center;">
+              <a href="index.html">
+                <div class="icon">
+                  <i class="bi bi-house"></i>
+                </div>
+              </a>
+              <div class="search-container">
+                        <i class="bi bi-search"></i>
+                <input type="text" placeholder="Search products...">
+                </div>
+            </div>
+            <div class="title">
+                <h1>ArtistryHub</h1>
+            </div>
+            
+            
+            <div class="lasticon" style="display: flex; gap: 10px;">
+        
+                
+              <div class="icon" >
+                <a href="signup.html">
+                  <i class="bi bi-person"></i>
+              </a>
+              </div>
+            
+                
+                
+            
+                
+                <a href="favourites.html">
+                <div class="icon">
+                    <i class="bi bi-heart"></i>
+                </div>
+                </a>
+                <a href="cart.html">
+                <div class="icon">
+                    <i class="bi bi-bag"></i>
+                </div>
+                
+                
+                </a>
+            </div>
+        </div>
+        
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cart-container">
+                        <h2 class="cart-title">Shopping Cart</h2>
+                        <div id="cartItems">
+                            <!-- Cart items will be dynamically added here -->
+                        </div>
+                        <div class="cart-empty" id="cartEmpty">
+                            <i class="bi bi-cart"></i>
+                            <p>Your cart is empty</p>
+                            <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+                        </div>
+                        <div class="cart-summary" id="cartSummary" style="display: none;">
+                            <div class="cart-total">
+                                <span>Total:</span>
+                                <span id="cartTotal">$0.00</span>
+                            </div>
+                            <button class="checkout-btn">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+          <i class="bi bi-instagram"></i>
+        </div>
+        <div class="footer-links">
+          <a href="aboutus.html">About Us</a>
+          <a href="contactus.html">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Return Policy</a>
+          
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

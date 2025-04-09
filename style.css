@@ -1,3 +1,6 @@
+/* Add Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@500;600&family=Open+Sans:wght@400;600&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
@@ -23,10 +26,11 @@ header.hidden {
 
 footer{
     /* position: fixed; */
+    /* position: relative; */
     bottom: 0;
     left: 0;
     object-fit: fill;
-    /* width: 98.6%; */
+    width: 100%;
     background-color: #333;
     color: white;
     padding: 10px;
@@ -240,8 +244,8 @@ footer{
   }
 
   .main-content {
-    padding-top: 100px; /* Space for fixed header */
-    padding-bottom: 70px; Space for fixed footer
+    padding-top: 100px; 
+    padding-bottom: 80px; 
 }
 
   .section-title {
@@ -287,12 +291,12 @@ footer{
 }
 
 .card-title {
-    font-family: 'Brush Script MT', cursive;
-    color: white;
-    font-size: 3.5em;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
 }
 
 .card-text {
@@ -668,23 +672,17 @@ body {
 
 /* Favorites Page Styles */
 .favorites-card {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    backdrop-filter: blur(5px);
+    background-color: white;
+    border-radius: 10px;
     padding: 2rem;
     margin-top: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .favorites-title {
-    color: rgb(67, 110, 51);
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .favorites-empty {
@@ -695,7 +693,7 @@ body {
 
 .favorites-empty i {
     font-size: 4rem;
-    color: rgb(67, 110, 51);
+    color: #dc3545;
     margin-bottom: 1rem;
 }
 
@@ -703,19 +701,6 @@ body {
     color: #666;
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
-}
-
-.favorites-empty .btn-primary {
-    background-color: rgb(67, 110, 51);
-    border: none;
-    padding: 0.75rem 2rem;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.favorites-empty .btn-primary:hover {
-    background-color: rgb(56, 92, 43);
-    transform: translateY(-2px);
 }
 
 .favorite-item {
@@ -774,10 +759,10 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -786,8 +771,8 @@ body {
 }
 
 .favorite-item .remove-favorite:hover {
-    background-color: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
+    background-color: #dc3545;
+    color: white;
 }
 
 .favorite-item .remove-favorite i {
@@ -816,12 +801,12 @@ body {
 
 /* Text Styling */
 .card-title {
-    font-family: 'Brush Script MT', cursive;
-    color: white;
-    font-size: 3.5em;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
 }
 
 .section-title {
@@ -904,5 +889,32 @@ body {
     color: #333333;
 }
 
-/* Add Google Fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@500;600&family=Open+Sans:wght@400;600&display=swap');
+.favorite-btn {
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.favorite-btn:hover {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.favorite-btn i {
+    font-size: 1rem;
+}
+
+.favorite-btn.active {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
