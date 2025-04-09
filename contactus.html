@@ -4,107 +4,125 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtistryHub</title>
+    <title>Contact Us - ArtistryHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+<body>
     <header>
         <div class="titlebar">
-        
-            <div class="fsticon" style="display: flex; gap: 10px;">
-              <a href="index.html">
-                <div class="icon">
-                  <i class="bi bi-house"></i>
+            <div class="fsticon" style="display: flex; gap: 10px; align-items: center;">
+                <a href="index.html">
+                    <div class="icon">
+                        <i class="bi bi-house"></i>
+                    </div>
+                </a>
+                <div class="search-container">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search products...">
                 </div>
-              </a>
-              <a href="#">
-                <div class="icon" >
-                    <div class="search-icon">
-                        <i class="bi bi-search"></i>
-                    <!-- <div class="search-bar">
-                        <input type="text" placeholder="Search...">
-    
-                        
-                    </div> -->
-                    </div> 
-                </div>
-              </a>
             </div>
             <div class="title">
                 <h1>ArtistryHub</h1>
             </div>
-            
-            
             <div class="lasticon" style="display: flex; gap: 10px;">
-        
-            
-                
-                <a href="signup.html">
-                    <div class="icon">
-                        <i class="bi bi-person"></i>
-                    </div>
-                    </a>
-            
-                
-                <a href="#">
                 <div class="icon">
-                    <i class="bi bi-heart"></i>
+                    <a href="#" class="profile-toggle"></a>
+                    <i class="bi bi-person"></i>
                 </div>
+                <div class="profile-menu">
+                    <button>Log In <a href="login.html"></a></button>
+                    <button>Sign Up<a href="signup.html"></a></button>
+                </div>
+                <a href="#">
+                    <div class="icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
                 </a>
                 <a href="#">
-                <div class="icon">
-                    <i class="bi bi-bag"></i>
-                </div>
+                    <div class="icon">
+                        <i class="bi bi-bag"></i>
+                    </div>
                 </a>
             </div>
         </div>
     </header>
-<body >
+
     <div class="main-content">
-        <section class="contact-us">
-            <h2>Contact Us</h2>
-            <div class="contact-container">
-                <div class="contact-text">
-                    <h3>Our Location</h3>
-                    <p>ArtistryHub, 123 Art Street, USA</p>
-                    
-                    <h3>Email Us</h3>
-                    <p>support@artistryhub.com</p>
-                    
-                    <h3>Call Us</h3>
-                    <p>+1 234 567 890</p>
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card contact-card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center mb-4">Contact Us</h2>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="contact-info">
+                                        <h3 class="section-title">Get in Touch</h3>
+                                        <div class="contact-item">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                            <p>123 Art Street, Creative District<br>New York, NY 10001</p>
+                                        </div>
+                                        <div class="contact-item">
+                                            <i class="bi bi-telephone-fill"></i>
+                                            <p>+1 (555) 123-4567</p>
+                                        </div>
+                                        <div class="contact-item">
+                                            <i class="bi bi-envelope-fill"></i>
+                                            <p>info@artistryhub.com</p>
+                                        </div>
+                                        <div class="contact-item">
+                                            <i class="bi bi-clock-fill"></i>
+                                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form class="contact-form">
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <input type="text" class="form-control" id="subject" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Message</label>
+                                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-        </section>
-        <section class="contact-us">
-            <h2>Get in Touch</h2>
-            <form action="" method="">
-                <input class="submit-input" type="text" name="name" placeholder="Your Name" required>
-                <input class="submit-input" type="email" name="email" placeholder="Your Email" required>
-                <textarea class="submit-input" name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button class="submit-button" type="submit">Send Message</button>
-            </form>
-        </section>
+        </div>
     </div>
-    
 
     <footer>
         <div class="social-icons">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-twitter"></i>
-          <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-instagram"></i>
         </div>
         <div class="footer-links">
-          <a href="aboutus.html">About Us</a>
-          <a href="contactus.html">Contact Us</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Return Policy</a>
-          
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Return Policy</a>
         </div>
     </footer>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

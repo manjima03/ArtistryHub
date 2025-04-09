@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -10,12 +9,16 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    
     width: 100%;
-    background-color:rgb(67, 110, 51);
+    background-color: rgb(67, 110, 51);
     color: rgb(67, 110, 51);
     padding: 15px;
-    /* z-index: 10; */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+header.hidden {
+    transform: translateY(-100%);
 }
 
 footer{
@@ -30,24 +33,31 @@ footer{
     text-align: center;
 }
   .titlebar {
-
     width: 98.5%;
     margin: 0px;
     height: 60px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: rgba(67, 110, 51, 0.842); 
-    /* border-radius: 20px; */
-
-  } 
-  
-  .fsticon, .lasticon {
-    display: flex;
-    gap: 15px;
+    background-color: rgba(67, 110, 51, 0.842);
+    position: relative;
   }
   
+  .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .fsticon {
+    z-index: 2;
+  }
+  
+  .lasticon {
+    z-index: 2;
+  }
   
   .icon {
     display: flex;
@@ -71,8 +81,11 @@ footer{
   }
  .titlebar h1 {
     font-family: 'Brush Script MT', cursive;
-
     color: white;
+    font-size: 3.5em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
  }
  /* Styling the Profile Icon (Person) */
 .lasticon .icon {
@@ -242,57 +255,80 @@ footer{
   }
 
   .product-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 20px;
     padding: 40px 20px;
     margin-top: 20px;
-  }
+}
 
-  .product {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    padding: 10px;
-    transition: transform 0.3s ease;
-  }
-
-  .product:hover {
-    transform: scale(1.05);
-  }
-
-  .product img {
-    max-width: 100%;
-    border-radius: 10px;
-  }
-
-  .product h3 {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-
-  .product p {
-    font-size: 16px;
-    color: rgb(67, 110, 51);
-    margin-bottom: 10px;
-  }
-
-  .product button {
-    padding: 10px;
-    background-color: #333;
-    color: white;
+.card {
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
 
-  .product button:hover {
-    background-color: #ff9900;
-  }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-family: 'Brush Script MT', cursive;
+    color: white;
+    font-size: 3.5em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+.card-text {
+    color: rgb(67, 110, 51);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: rgb(67, 110, 51);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: rgb(56, 92, 43);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 200px;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-text {
+        font-size: 1rem;
+    }
+}
 
    .social-icons i {
     margin: 0 10px;
@@ -330,3 +366,543 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 30px;
+}
+
+.slide {
+    min-width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.slide:hover {
+    transform: translateY(-5px);
+}
+
+.slide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.slide h3 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 1.4em;
+}
+
+.slide p {
+    color: #666;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(67, 110, 51, 0.8);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: rgba(67, 110, 51, 1);
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.slider-btn i {
+    font-size: 1.2em;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px 15px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 200px;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.search-container i {
+    color: #333;
+    margin-right: 5px;
+}
+
+/* About Us Page Styles */
+.about-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.about-card .card-title {
+    color: rgb(67, 110, 51);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: rgb(67, 110, 51);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.section-text {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card i {
+    font-size: 2rem;
+    color: rgb(67, 110, 51);
+    margin-bottom: 1rem;
+}
+
+.value-card h4 {
+    color: rgb(67, 110, 51);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.value-card p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.team-card {
+    text-align: center;
+    padding: 1rem;
+}
+
+.team-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid rgb(67, 110, 51);
+}
+
+.team-card h4 {
+    color: rgb(67, 110, 51);
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.team-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Contact Us Page Styles */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.contact-card .card-title {
+    color: rgb(67, 110, 51);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    padding: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.contact-item i {
+    color: rgb(67, 110, 51);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-top: 0.25rem;
+}
+
+.contact-item p {
+    color: #333;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.contact-form .form-label {
+    color: rgb(67, 110, 51);
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(67, 110, 51, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.contact-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: rgb(67, 110, 51);
+    box-shadow: 0 0 0 0.2rem rgba(67, 110, 51, 0.25);
+}
+
+.contact-form textarea.form-control {
+    resize: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-card .card-title,
+    .contact-card .card-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .team-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .contact-item {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Favorites Page Styles */
+.favorites-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.favorites-title {
+    color: rgb(67, 110, 51);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-empty {
+    text-align: center;
+    padding: 3rem;
+    display: none;
+}
+
+.favorites-empty i {
+    font-size: 4rem;
+    color: rgb(67, 110, 51);
+    margin-bottom: 1rem;
+}
+
+.favorites-empty p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.favorites-empty .btn-primary {
+    background-color: rgb(67, 110, 51);
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.favorites-empty .btn-primary:hover {
+    background-color: rgb(56, 92, 43);
+    transform: translateY(-2px);
+}
+
+.favorite-item {
+    margin-bottom: 2rem;
+}
+
+.favorite-item .card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.favorite-item .card:hover {
+    transform: translateY(-5px);
+}
+
+.favorite-item .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.favorite-item .card-body {
+    padding: 1.5rem;
+}
+
+.favorite-item .card-title {
+    color: rgb(67, 110, 51);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.favorite-item .card-text {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.favorite-item .btn-primary {
+    background-color: rgb(67, 110, 51);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.favorite-item .btn-primary:hover {
+    background-color: rgb(56, 92, 43);
+    transform: translateY(-2px);
+}
+
+.favorite-item .remove-favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favorite-item .remove-favorite:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+.favorite-item .remove-favorite i {
+    color: rgb(67, 110, 51);
+    font-size: 1.2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .favorites-title {
+        font-size: 2rem;
+    }
+    
+    .favorites-empty i {
+        font-size: 3rem;
+    }
+    
+    .favorites-empty p {
+        font-size: 1.1rem;
+    }
+    
+    .favorite-item .card-img-top {
+        height: 200px;
+    }
+}
+
+/* Text Styling */
+.card-title {
+    font-family: 'Brush Script MT', cursive;
+    color: white;
+    font-size: 3.5em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #4a4a4a;
+}
+
+.section-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.value-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 1rem 0;
+}
+
+.value-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.team-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 1rem 0 0.5rem;
+}
+
+.team-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.contact-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1.5rem;
+}
+
+.contact-item p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-left: 1.5rem;
+}
+
+.form-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #333333;
+}
+
+/* Add Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@500;600&family=Open+Sans:wght@400;600&display=swap');
